@@ -1,0 +1,34 @@
+
+a=[2,3,4] ## weights
+b=[1,2,5] # profits
+c=b.copy()
+#[1,3,2,5,4]
+list1=[]
+for i in range(len(b)):
+    d=max(c)
+    index_1=b.index(d) #index of max profit 
+    #print(index_1)
+    list1.append(a[index_1])
+    c.remove(d)
+print(list1) # weights
+b.sort(reverse=True)
+print(b) # profits
+list2=[]
+w=6
+weight=0
+max_profit=0
+for i in range(len(a)):
+    if(list1[i]+weight<=w):
+        list2.append(1)
+        weight+=list1[i]
+        max_profit+=b[i]
+        
+    else:
+        list2.append(0)
+        
+print(list2)
+print(max_profit)       
+
+
+
+    
