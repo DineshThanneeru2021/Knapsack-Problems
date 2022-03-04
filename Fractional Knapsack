@@ -1,0 +1,42 @@
+a=[10,40,20,30] ## weights
+b=[60,40,100,120] # profits
+c=[0]*len(a)
+w=50
+weight=0
+max_profit=0
+for i in range(0,len(a)):
+    c[i]=(b[i]/a[i])
+    
+d=c.copy()
+d1=c.copy()
+print(c) # p/w ratio
+#[1,3,2,5,4]
+list1=[0]*len(a)
+for i in range(0,len(a)):
+    e=max(c)
+    
+    index_1=c.index(e) # index
+    print(e,index_1)
+    c[index_1]=0
+    if(weight<=w):
+        if(weight+a[index_1]<=w):
+            list1[index_1]=1
+            weight+=a[index_1]
+        else:
+            rem=w-weight
+            list1[index_1]=(rem/a[index_1])
+            weight+=(rem/a[index_1])*a[index_1]
+    else:
+        list1[index_1]=0
+print(list1)
+print(weight)
+for i in range(0,len(list1)):
+    max_profit+=list1[i]*b[i]
+print(max_profit)
+        
+
+
+
+
+
+    
